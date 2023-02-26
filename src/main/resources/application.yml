@@ -1,0 +1,24 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: com.jie
+  redis:
+    database: 0
+    host: 192.168.23.131
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 1
+        max-idle: 8
+        min-idle: 0
+
+nacos:
+  config:
+    access-key: nacos
+    secret-key: nacos
+    server-addr: 127.0.0.1:8848
+    namespace: a219ed14-16cc-4163-94e0-f6f751f8a0f5

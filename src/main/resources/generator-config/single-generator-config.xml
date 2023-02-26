@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "mybatis-generator-config_1_0_1.dtd">
+
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <!-- 此处是将Example 改名为Query -->
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Query"/>
+        </plugin>
+
+        <!-- 注意这里修改成你自己的tddl配置, 包括appName和dbGroupKey -->
+        <!-- 	<tddl appName="CAINIAO_XPM_ACCOUNT_BILL_APP" dbGroupKey="CAINIAO_XPM_ACCOUNT_BILL_0000_GROUP">
+            </tddl> -->
+        <!-- 注意, jdbcConnection和tddl选择其一配置就好, 如果你已知数据库密码, 可采用下面密码方式 -->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/lock"
+                        userId="root" password="root">
+        </jdbcConnection>
+
+        <!-- 注意这里请修改成你自己的包路径 -->
+        <javaModelGenerator targetPackage="com.jie.mapper.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 注意这里请修改成你自己的包路径 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- 注意这里请修改成你自己的包路径 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.jie.mapper.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 下面添加每一个你想要生成的表名, 成为一个table元素 -->
+
+        <table tableName="lock_record" domainObjectName="LockRecord"/>
+    </context>
+</generatorConfiguration>
